@@ -1,6 +1,7 @@
 import React from 'react';
 import StripesForm from './StripesForm';
 import StripesCSS from './StripesCSS';
+import { Box } from '../../GlobalStyles.js';
 
 class Stripes extends React.Component {
     constructor() {
@@ -9,18 +10,8 @@ class Stripes extends React.Component {
             displayColor1Picker: false,
             displayColor2Picker: false,
             degrees: 45,
-            color1: {
-                r: '152',
-                g: '205',
-                b: '141',
-                a: '1',
-            },
-            color2: {
-                r: '246',
-                g: '240',
-                b: '207',
-                a: '1',
-            },
+            color1: '#A50002',
+            color2: '#243B75',
             width: 100,
             height: 100,
         }
@@ -29,13 +20,13 @@ class Stripes extends React.Component {
     newCSS = () => {
         return `background: linear-gradient(
             45deg,
-            rgba(${this.state.color1.r}, ${this.state.color1.g}, ${this.state.color1.b}, ${this.state.color1.a}) 25%, 
-            rgba(${this.state.color2.r}, ${this.state.color2.g}, ${this.state.color2.b}, ${this.state.color2.a}) 25%, 
-            rgba(${this.state.color2.r}, ${this.state.color2.g}, ${this.state.color2.b}, ${this.state.color2.a}) 50%, 
-            rgba(${this.state.color1.r}, ${this.state.color1.g}, ${this.state.color1.b}, ${this.state.color1.a}) 50%, 
-            rgba(${this.state.color1.r}, ${this.state.color1.g}, ${this.state.color1.b}, ${this.state.color1.a}) 75%, 
-            rgba(${this.state.color2.r}, ${this.state.color2.g}, ${this.state.color2.b}, ${this.state.color2.a}) 75%, 
-            rgba(${this.state.color2.r}, ${this.state.color2.g}, ${this.state.color2.b}, ${this.state.color2.a}) 100%
+            ${this.state.color1} 25%, 
+            ${this.state.color2} 25%, 
+            ${this.state.color2} 50%, 
+            ${this.state.color1} 50%, 
+            ${this.state.color1} 75%, 
+            ${this.state.color2} 75%, 
+            ${this.state.color2} 100%
             );
 background-size: ${this.state.width}px ${this.state.height}px;`;
     }
@@ -49,7 +40,7 @@ background-size: ${this.state.width}px ${this.state.height}px;`;
     };
     
     handleColor1Change = (color) => {
-        this.setState({ color1: color.rgb });
+        this.setState({ color1: color.hex });
         const css = this.newCSS();
         this.props.updateCSS(css);
     };
@@ -63,7 +54,7 @@ background-size: ${this.state.width}px ${this.state.height}px;`;
     };
     
     handleColor2Change = (color) => {
-        this.setState({ color1: color.rgb });
+        this.setState({ color2: color.hex });
         const css = this.newCSS();
         this.props.updateCSS(css);
     };
@@ -79,7 +70,7 @@ background-size: ${this.state.width}px ${this.state.height}px;`;
     
     render() {
         return (
-            <section>
+            <Box>
                 <StripesForm {...this.state} 
                     handleColor1Click={this.handleColor1Click}
                     handleColor1Close={this.handleColor1Close}
@@ -91,7 +82,7 @@ background-size: ${this.state.width}px ${this.state.height}px;`;
                     updateCSS={this.props.updateCSS}
                     />
                 <StripesCSS {...this.state} newCSS={this.newCSS}/>
-            </section>
+            </Box>
         );
     }
 }

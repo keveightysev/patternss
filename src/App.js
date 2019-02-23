@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import GlobalStyle from './GlobalStyles';
+import GlobalStyle, { Main, Heading } from './GlobalStyles';
 import Stripes from './components/Stripes/Stripes'
 
 class App extends React.Component {
@@ -9,13 +9,13 @@ class App extends React.Component {
     this.state = {
       cssString: `background: linear-gradient(
         45deg,
-        rgba(152, 205, 141, 1) 25%, 
-        rgba(246, 240, 207, 1) 25%, 
-        rgba(246, 240, 207, 1) 50%, 
-        rgba(152, 205, 141, 1) 50%, 
-        rgba(152, 205, 141, 1) 75%, 
-        rgba(246, 240, 207, 1) 75%, 
-        rgba(246, 240, 207, 1) 100%
+        #A50002 25%, 
+        #243B75 25%, 
+        #243B75 50%, 
+        #A50002 50%, 
+        #A50002 75%, 
+        #243B75 75%, 
+        #243B75 100%
         );
     background-size: 100px 100px;`,
     }
@@ -31,10 +31,12 @@ class App extends React.Component {
     return (
       <>
       <GlobalStyle pattern={this.state.cssString}/>
-      <header>
-        Patternss
-      </header>
-      <Stripes updateCSS={this.updateCSS} />
+      <Main>
+        <Heading>
+          Patternss
+        </Heading>
+        <Stripes updateCSS={this.updateCSS} />
+      </Main>
       </>
     );
   }
