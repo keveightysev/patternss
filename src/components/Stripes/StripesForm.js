@@ -41,25 +41,33 @@ const StripesForm = props => {
 
     return (
         <>
-        <div>
-        <div style={ styles.swatch } onClick={ props.handleColor1Click }>
-          <div style={ styles.color1 } />
-        </div>
-        { props.displayColor1Picker ? <div style={ styles.popover }>
-          <div style={ styles.cover } onClick={ props.handleColor1Close }/>
-          <SketchPicker color={ props.color1 } onChange={ props.handleColor1Change } />
-        </div> : null }
-        </div>
+            <div>
 
-        <div>
-        <div style={ styles.swatch } onClick={ props.handleColor2Click }>
-          <div style={ styles.color2 } />
-        </div>
-        { props.displayColor2Picker ? <div style={ styles.popover }>
-          <div style={ styles.cover } onClick={ props.handleColor2Close }/>
-          <SketchPicker color={ props.color2 } onChange={ props.handleColor2Change } />
-        </div> : null }
-        </div>
+              <div style={ styles.swatch } onClick={ props.handleColor1Click }>
+                <div style={ styles.color1 } />
+              </div>
+              { props.displayColor1Picker ? <div style={ styles.popover }>
+                <div style={ styles.cover } onClick={ props.handleColor1Close }/>
+                <SketchPicker color={ props.color1 } onChange={ props.handleColor1Change } />
+              </div> : null }
+
+            </div>
+            <div>
+
+              <div style={ styles.swatch } onClick={ props.handleColor2Click }>
+                <div style={ styles.color2 } />
+              </div>
+              { props.displayColor2Picker ? <div style={ styles.popover }>
+                <div style={ styles.cover } onClick={ props.handleColor2Close }/>
+                <SketchPicker color={ props.color2 } onChange={ props.handleColor2Change } />
+              </div> : null }
+
+            </div>
+            <div>
+
+              <input type="range" min="10" max="500" value={props.width} onChange={props.handleSlider} />
+
+            </div>
         </>
     );
 }
