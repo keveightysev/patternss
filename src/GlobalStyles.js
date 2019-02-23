@@ -23,6 +23,7 @@ export const Main = styled.div`
     background: white;
     padding: 40px 40px 10px;
     border-radius: 30px;
+    box-shadow: 0 0 10px #888888;
 `;
 
 export const Heading = styled.header`
