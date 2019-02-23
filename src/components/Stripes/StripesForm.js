@@ -1,6 +1,7 @@
 import React from 'react';
 import { SketchPicker } from 'react-color';
 import reactCSS from 'reactcss';
+import { Form } from '../../GlobalStyles';
 
 const StripesForm = props => {
   const styles = reactCSS({
@@ -40,9 +41,9 @@ const StripesForm = props => {
   });
 
   return (
-    <div>
+    <Form>
+      <h2>Choose Color 1</h2>
       <div>
-        Choose color 1
         <div style={ styles.swatch } onClick={ props.handleColor1Click }>
           <div style={ styles.color1 } />
         </div>
@@ -52,8 +53,8 @@ const StripesForm = props => {
         </div> : null }
         
       </div>
+      <h2>Choose Color 2</h2>
       <div>
-        Choose color 2
         <div style={ styles.swatch } onClick={ props.handleColor2Click }>
           <div style={ styles.color2 } />
         </div>
@@ -63,12 +64,12 @@ const StripesForm = props => {
         </div> : null }
 
       </div>
+      <h2>Select a Width</h2>
       <div>
-        Choose width
-        <input type="range" min="10" max="500" value={props.width} onChange={props.handleSlider} />
+        <input type="range" min="10" max="999" value={props.width} onChange={props.handleSlider} />
 
       </div>
-    </div>
+    </Form>
   );
 }
 

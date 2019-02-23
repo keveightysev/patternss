@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import GlobalStyle, { Main, Heading } from './GlobalStyles';
+import GlobalStyle, { Main, Heading, Footer } from './GlobalStyles';
 import Stripes from './components/Stripes/Stripes'
 
 class App extends React.Component {
@@ -36,6 +36,7 @@ class App extends React.Component {
           Patternss
         </Heading>
         <Stripes updateCSS={this.updateCSS} />
+        <Footer>Made by <a href='http://iridigital.com' target='_blank' rel='noopener noreferrer'>Kevin Smith</a> - <a href='https://github.com/keveightysev/patternss' target='_blank' rel='noopener noreferrer'>Git Repo</a></Footer>
       </Main>
       </>
     );
