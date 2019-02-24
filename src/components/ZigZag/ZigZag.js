@@ -1,9 +1,9 @@
 import React from 'react';
-import StripesForm from './StripesForm';
-import StripesCSS from './StripesCSS';
+import ZigZagForm from './ZigZagForm';
+import ZigZagCSS from './ZigZagCSS';
 import { Box } from '../../GlobalStyles.js';
 
-class Stripes extends React.Component {
+class ZigZag extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -23,17 +23,13 @@ class Stripes extends React.Component {
     }
 
     newCSS = () => {
-        return `background: linear-gradient(
-            45deg,
-            ${this.state.color1} 25%, 
-            ${this.state.color2} 25%, 
-            ${this.state.color2} 50%, 
-            ${this.state.color1} 50%, 
-            ${this.state.color1} 75%, 
-            ${this.state.color2} 75%, 
-            ${this.state.color2} 100%
-            );
-background-size: ${this.state.width}px ${this.state.height}px;`;
+        return `background: 
+        linear-gradient(135deg, ${this.state.color1} 25%, transparent 25%) -${this.state.width / 2}px 0,
+        linear-gradient(225deg, ${this.state.color1} 25%, transparent 25%) -${this.state.width / 2}px 0,
+        linear-gradient(315deg, ${this.state.color1} 25%, transparent 25%),
+        linear-gradient(45deg, ${this.state.color1} 25%, transparent 25%);	
+background-size: ${this.state.width}px ${this.state.height}px;
+background-color: ${this.state.color2};`;
     }
 
     handleColor1Click = () => {
@@ -76,7 +72,7 @@ background-size: ${this.state.width}px ${this.state.height}px;`;
     render() {
         return (
             <Box>
-                <StripesForm {...this.state} 
+                <ZigZagForm {...this.state} 
                     handleColor1Click={this.handleColor1Click}
                     handleColor1Close={this.handleColor1Close}
                     handleColor1Change={this.handleColor1Change}
@@ -86,10 +82,10 @@ background-size: ${this.state.width}px ${this.state.height}px;`;
                     handleSlider={this.handleSlider}
                     updateCSS={this.props.updateCSS}
                     />
-                <StripesCSS {...this.state} newCSS={this.newCSS}/>
+                <ZigZagCSS {...this.state} newCSS={this.newCSS}/>
             </Box>
         );
     }
 }
 
-export default Stripes;
+export default ZigZag;

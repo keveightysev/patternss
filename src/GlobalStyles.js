@@ -32,8 +32,13 @@ export const Heading = styled.header`
     text-align: center;
 `;
 
+export const Choose = styled.div`
+    text-align: center;
+`;
+
 export const Box = styled.section`
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     margin: 40px 0;
 `;
@@ -43,7 +48,7 @@ export const Form = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 100%;
 
     input[type="range"] {
         -webkit-appearance: none;
@@ -67,15 +72,14 @@ export const Form = styled.div`
     }
 `;
 
-export const CSS = styled.div`
-    white-space: pre;
+export const CSS = styled.p`
+    white-space: pre-wrap;
     background: #d3d3d3;
-    width: 50%;
+    width: 100%;
     padding: 10px;
     font-family: monospace;
     font-size: 2rem;
     border-radius: 5px;
-    word-wrap: break-word;
 `;
 
 export const Footer = styled.p`
