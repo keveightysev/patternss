@@ -31,14 +31,6 @@ class ZigZag extends React.Component {
 background-size: ${this.state.width}px ${this.state.height}px;
 background-color: ${this.state.color2};`;
     }
-
-    handleColor1Click = () => {
-        this.setState({ displayColor1Picker: !this.state.displayColor1Picker })
-    };
-    
-    handleColor1Close = () => {
-        this.setState({ displayColor1Picker: false })
-    };
     
     handleColor1Change = (color) => {
         this.setState({ color1: color.hex });
@@ -61,10 +53,14 @@ background-color: ${this.state.color2};`;
     };
 
     handleSlider = e => {
-        this.setState({
-            width: e.target.value,
-            height: e.target.value
-        })
+        if (e.target.value % 2 !== 0) {
+            return null;
+        } else {
+            this.setState({
+                width: e.target.value,
+                height: e.target.value,
+            })
+        }
         const css = this.newCSS();
         this.props.updateCSS(css);
     }
