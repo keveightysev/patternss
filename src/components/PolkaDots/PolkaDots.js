@@ -1,15 +1,15 @@
 import React from 'react';
-import ZigZagForm from './ZigZagForm';
+import PolkaDotsForm from './PolkaDotsForm';
 import { Box } from '../../GlobalStyles.js';
 import CSSBox from '../CSSBox';
 
-class ZigZag extends React.Component {
+class PolkaDots extends React.Component {
     constructor() {
         super();
         this.state = {
             degrees: 45,
-            colors: ['#45005F', '#752472'],
-            width: 100,
+            colors: ['#B71002', '#FFFFFF'],
+            width: 60,
         }
     }
 
@@ -19,13 +19,10 @@ class ZigZag extends React.Component {
     }
 
     newCSS = () => {
-        return `background: 
-        linear-gradient(135deg, ${this.state.colors[0]} 25%, transparent 25%) -${this.state.width / 2}px 0,
-        linear-gradient(225deg, ${this.state.colors[0]} 25%, transparent 25%) -${this.state.width / 2}px 0,
-        linear-gradient(315deg, ${this.state.colors[0]} 25%, transparent 25%),
-        linear-gradient(45deg, ${this.state.colors[0]} 25%, transparent 25%);	
+        return `background-color:${this.state.colors[0]};
+background-image: radial-gradient(${this.state.colors[1]} 15%, transparent 16%), radial-gradient(${this.state.colors[1]} 15%, transparent 16%);
 background-size: ${this.state.width}px ${this.state.width}px;
-background-color: ${this.state.colors[1]};`;
+background-position: 0 0, ${this.state.width / 2}px ${this.state.width / 2}px;`;
     }
     
     handleColorChange = (color, index) => {
@@ -53,7 +50,7 @@ background-color: ${this.state.colors[1]};`;
         const css = this.newCSS();
         return (
             <Box>
-                <ZigZagForm {...this.state} 
+                <PolkaDotsForm {...this.state} 
                     handleColorChange={this.handleColorChange}
                     handleSlider={this.handleSlider}
                     updateCSS={this.props.updateCSS}
@@ -64,4 +61,4 @@ background-color: ${this.state.colors[1]};`;
     }
 }
 
-export default ZigZag;
+export default PolkaDots;

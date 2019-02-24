@@ -24,16 +24,50 @@ export const Main = styled.div`
     padding: 40px 40px 10px;
     border-radius: 30px;
     box-shadow: 0 0 10px #888888;
+
+    @media (max-width: 500px) {
+        width: 80%;
+    }
 `;
 
 export const Heading = styled.header`
-    font-size: 3rem;
+    
     font-weight: 600;
     text-align: center;
+
+    h1 {
+        margin: 10px;
+        font-size: 4rem;
+
+        @media (max-width: 500px) {
+            font-size: 3rem;
+        }
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted #818181;
+    }
 `;
 
 export const Choose = styled.div`
     text-align: center;
+    
+    select {
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #818181;
+        width: 200px;
+        height: 30px;
+        border-radius: 10px;
+
+        &:focus {
+            outline: 0;
+        }
+    }
 `;
 
 export const Box = styled.section`
@@ -49,6 +83,7 @@ export const Form = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-bottom: 30px;
 
     input[type="range"] {
         -webkit-appearance: none;

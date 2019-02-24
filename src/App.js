@@ -3,6 +3,7 @@ import './App.css';
 import GlobalStyle, { Main, Heading, Footer, Choose } from './GlobalStyles';
 import Stripes from './components/Stripes/Stripes';
 import ZigZag from './components/ZigZag/ZigZag';
+import PolkaDots from './components/PolkaDots/PolkaDots';
 
 class App extends React.Component {
   constructor() {
@@ -20,6 +21,15 @@ class App extends React.Component {
         #243B75 100%
         );
     background-size: 100px 100px;`,
+    }
+  }
+
+  renderSwitch = state => {
+    switch(state) {
+      case 'Stripes': return <Stripes updateCSS={this.updateCSS} />;
+      case 'ZigZag': return <ZigZag updateCSS={this.updateCSS} />;
+      case 'PolkaDots': return <PolkaDots updateCSS={this.updateCSS} />;
+      default: return null;
     }
   }
 
@@ -41,18 +51,19 @@ class App extends React.Component {
       <GlobalStyle pattern={this.state.cssString}/>
       <Main>
         <Heading>
-          Patternss
+          <h1>Patternss</h1>
+          <p>Generate CSS code for background patterns while live previewing</p>
         </Heading>
         <Choose>
           <h2>Choose a Pattern</h2>
           <select name="pattern" value={this.state.value} onChange={this.changePattern}>
             <option value="Stripes">Stripes</option>
             <option value="ZigZag">Zig Zag</option>
+            <option value="PolkaDots">Polka Dots</option>
           </select>
         </Choose>
-        {(this.state.pattern === "Stripes") ? <Stripes updateCSS={this.updateCSS}/> : <ZigZag updateCSS={this.updateCSS}/>}
-        {/* <Stripes updateCSS={this.updateCSS} /> */}
-        <Footer>Made by <a href='http://iridigital.com' target='_blank' rel='noopener noreferrer'>Kevin Smith</a> - <a href='https://github.com/keveightysev/patternss' target='_blank' rel='noopener noreferrer'>Git Repo</a></Footer>
+        {this.renderSwitch(this.state.pattern)}
+        <Footer>Made by <a href='https://twitter.com/keveightysev' target='_blank' rel='noopener noreferrer'>Kevin Smith</a> - <a href='https://github.com/keveightysev/patternss' target='_blank' rel='noopener noreferrer'>Git Repo</a></Footer>
       </Main>
       </>
     );
