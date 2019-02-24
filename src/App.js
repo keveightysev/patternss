@@ -4,6 +4,7 @@ import GlobalStyle, { Main, Heading, Footer, Choose } from './GlobalStyles';
 import Stripes from './components/Stripes/Stripes';
 import ZigZag from './components/ZigZag/ZigZag';
 import PolkaDots from './components/PolkaDots/PolkaDots';
+import Gingham from './components/Gingham/Gingham';
 
 class App extends React.Component {
   constructor() {
@@ -29,6 +30,7 @@ class App extends React.Component {
       case 'Stripes': return <Stripes updateCSS={this.updateCSS} />;
       case 'ZigZag': return <ZigZag updateCSS={this.updateCSS} />;
       case 'PolkaDots': return <PolkaDots updateCSS={this.updateCSS} />;
+      case 'Gingham': return <Gingham updateCSS={this.updateCSS} />;
       default: return null;
     }
   }
@@ -60,6 +62,7 @@ class App extends React.Component {
             <option value="Stripes">Stripes</option>
             <option value="ZigZag">Zig Zag</option>
             <option value="PolkaDots">Polka Dots</option>
+            <option value="Gingham">Gingham</option>
           </select>
         </Choose>
         {this.renderSwitch(this.state.pattern)}
