@@ -1,6 +1,6 @@
 import React from 'react';
 import StripesForm from './StripesForm';
-import StripesCSS from './StripesCSS';
+import CSSBox from '../CSSBox';
 import { Box } from '../../GlobalStyles.js';
 
 class Stripes extends React.Component {
@@ -51,6 +51,7 @@ background-size: ${this.state.width}px ${this.state.width}px;`;
     }
     
     render() {
+        const css = this.newCSS();
         return (
             <Box>
                 <StripesForm {...this.state} 
@@ -58,7 +59,7 @@ background-size: ${this.state.width}px ${this.state.width}px;`;
                     handleSlider={this.handleSlider}
                     updateCSS={this.props.updateCSS}
                     />
-                <StripesCSS {...this.state} newCSS={this.newCSS}/>
+                <CSSBox css={css} />
             </Box>
         );
     }

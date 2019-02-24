@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form } from '../../GlobalStyles';
-import ColorPicker from './ColorPicker';
+import ColorPicker from '../ColorPicker';
 
 const StripesForm = props => {
   return (
