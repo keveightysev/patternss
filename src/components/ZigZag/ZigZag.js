@@ -37,14 +37,10 @@ background-color: ${this.state.colors[1]};`;
     };
 
     handleSlider = e => {
-        if (e.target.value % 2 !== 0) {
-            return null;
-        } else {
-            this.setState({
-                width: e.target.value,
-                height: e.target.value,
-            })
-        }
+        this.setState({
+            width: e.target.value,
+            height: e.target.value,
+        })
         const css = this.newCSS();
         this.props.updateCSS(css);
     }

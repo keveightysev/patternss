@@ -84,6 +84,10 @@ export const Form = styled.div`
     align-items: center;
     width: 100%;
     margin-bottom: 30px;
+    
+    h2 {
+        text-align: center;
+    }
 
     input[type="range"] {
         -webkit-appearance: none;
