@@ -7,10 +7,11 @@ const ZigZagForm = props => {
   return (
     <Form>
       {props.colors.map((color, index) => <ColorPicker color={color} index={index} handleColorChange={props.handleColorChange} key={index} />)}
-      <h2>Select a Width</h2>
       <div>
-        <input type="range" min="10" step="2" max="999" value={props.width} onChange={props.handleSlider} />
-
+        <h2>Scale the Pattern</h2>
+        <input type="range" min="10" max="999" step="2" value={props.width} onChange={props.handleSlider} />
+        <h2>Select an Angle</h2>
+        <input type="range" min="0" max="90" value={props.angle} onChange={props.handleAngleChange} />
       </div>
     </Form>
   );

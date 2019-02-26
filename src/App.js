@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import GlobalStyle, { Main, Heading, Footer, Choose } from './GlobalStyles';
+import GlobalStyle, { Container, Main, Heading, Footer, Choose } from './GlobalStyles';
 import Stripes from './components/Stripes/Stripes';
 import ZigZag from './components/ZigZag/ZigZag';
 import PolkaDots from './components/PolkaDots/PolkaDots';
@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      pattern: 'Stripes',
+      pattern: 'ZigZag',
       cssString: `background: linear-gradient(
         45deg,
         #A50002 25%, 
@@ -51,6 +51,7 @@ class App extends React.Component {
     return (
       <>
       <GlobalStyle pattern={this.state.cssString}/>
+      <Container>
       <Main>
         <Heading>
           <h1>Patternss</h1>
@@ -68,6 +69,7 @@ class App extends React.Component {
         {this.renderSwitch(this.state.pattern)}
         <Footer>Made by <a href='https://twitter.com/keveightysev' target='_blank' rel='noopener noreferrer'>Kevin Smith</a> - <a href='https://github.com/keveightysev/patternss' target='_blank' rel='noopener noreferrer'>Git Repo</a></Footer>
       </Main>
+      </Container>
       </>
     );
   }
