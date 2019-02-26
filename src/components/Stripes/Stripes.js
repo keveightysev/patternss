@@ -48,7 +48,7 @@ background-size: ${this.state.width}px ${this.state.height};`;
                 width: e.target.value,
                 height: `${e.target.value}px`,
             })
-        } else if (this.state.angle >= 90) {
+        } else if (Number(this.state.angle) === 90) {
             this.setState({
                 width: e.target.value,
                 height: `100%`,
@@ -56,7 +56,7 @@ background-size: ${this.state.width}px ${this.state.height};`;
         } else {
             this.setState({
                 width: e.target.value,
-                height: `${e.target.value * Math.round(Math.tan(this.state.angle * Math.PI / 180) * 100) / 100 }px`
+                height: `${Math.abs(e.target.value * Math.round(Math.tan(this.state.angle * Math.PI / 180) * 100) / 100)}px`
             })
         }
         const css = this.newCSS();
@@ -69,15 +69,20 @@ background-size: ${this.state.width}px ${this.state.height};`;
                 angle: 0,
                 height: `${this.state.width}px`,
             })
-        } else if (e.target.value >= 90) {
+        } else if (Number(e.target.value) === 90) {
             this.setState({
-                angle: 90,
+                angle: e.target.value,
                 height: `100%`,
+            })
+        } else if (e.target.value >= 180) {
+            this.setState({
+                angle: 180,
+                height: `${this.state.width}px`,
             })
         } else {
             this.setState({
                 angle: e.target.value,
-                height: `${this.state.width * Math.round(Math.tan(e.target.value * Math.PI / 180) * 100) / 100 }px`,
+                height: `${Math.abs(this.state.width * Math.round(Math.tan(e.target.value * Math.PI / 180) * 100) / 100)}px`
             })
         }
         const css = this.newCSS();

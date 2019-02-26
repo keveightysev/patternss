@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      pattern: 'ZigZag',
+      pattern: 'Stripes',
       cssString: `background: linear-gradient(
         45deg,
         #A50002 25%, 

@@ -38,8 +38,7 @@ background-position: 0 0, ${this.state.width / 2}px ${this.state.width / 2}px;`;
             return null;
         } else {
             this.setState({
-                width: e.target.value,
-                height: e.target.value,
+                [e.target.name]: e.target.value,
             })
         }
         const css = this.newCSS();
