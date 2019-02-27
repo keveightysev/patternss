@@ -7,9 +7,10 @@ class Gingham extends React.Component {
     constructor() {
         super();
         this.state = {
-            degrees: 45,
+            angle: 45,
             colors: ['#FFFFFF', '#006708'],
             width: 50,
+            height: 50,
         }
     }
 
@@ -30,9 +31,22 @@ class Gingham extends React.Component {
     newCSS = () => {
         const rgbColor = this.hexToRgb(this.state.colors[1]);
 
-        return `background-color:${this.state.colors[0]};
+        return `position: relative;overflow: hidden;
+        width: 100%;
+        height: 100%;
+        &:before {
+            content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%
+    z-index: -100;
+            background-color:${this.state.colors[0]};
 background-image: linear-gradient(90deg, rgba(${rgbColor.r},${rgbColor.g},${rgbColor.b},.6) 50%, transparent 50%),linear-gradient(rgba(${rgbColor.r},${rgbColor.g},${rgbColor.b},.4) 50%, transparent 50%);
-background-size:${this.state.width}px ${this.state.width}px;`;
+background-size:${this.state.width}px ${this.state.height}px;
+transform: rotate(${this.state.angle}deg);
+        }`;
     }
 
     
@@ -52,14 +66,45 @@ background-size:${this.state.width}px ${this.state.width}px;`;
         const css = this.newCSS();
         this.props.updateCSS(css);
     }
+
+    handleAngleChange = e => {
+        this.setState({
+            angle: e.target.value,
+        })
+        const css = this.newCSS();
+        this.props.updateCSS(css);
+    }
     
     render() {
-        const css = this.newCSS();
+        const rgbColor = this.hexToRgb(this.state.colors[1]);
+        const css = `div {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+div:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%
+    z-index: -100;
+    background-color:${this.state.colors[0]};
+    background-image: 
+        linear-gradient(90deg, rgba(${rgbColor.r},${rgbColor.g},${rgbColor.b},.6) 50%, transparent 50%),
+        linear-gradient(rgba(${rgbColor.r},${rgbColor.g},${rgbColor.b},.4) 50%, transparent 50%);
+    background-size:${this.state.width}px ${this.state.height}px;
+    transform: rotate(${this.state.angle}deg);
+}`
         return (
             <Box>
                 <GinghamForm {...this.state} 
                     handleColorChange={this.handleColorChange}
                     handleSlider={this.handleSlider}
+                    handleAngleChange={this.handleAngleChange}
                     updateCSS={this.props.updateCSS}
                     />
                 <CSSBox css={css} />
