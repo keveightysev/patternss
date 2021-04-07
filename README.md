@@ -1,9 +1,9 @@
 # Patternss
 
-A CSS background generator
---------------------------
+## A CSS background generator
 
 ## Upcoming Patterns
+
 - Tartan
 - Madras
 - Houndstooh
@@ -12,6 +12,7 @@ A CSS background generator
 - Chevron
 
 ## Stretch Patterns
+
 - Brocade
 - Damask
 
