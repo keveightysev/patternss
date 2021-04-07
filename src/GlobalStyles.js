@@ -31,7 +31,6 @@ export const Container = styled.div`
 
 export const Main = styled.div`
   width: 50%;
-  max-height: 80%;
   margin: 20px auto;
   background: white;
   padding: 40px 40px 10px;
